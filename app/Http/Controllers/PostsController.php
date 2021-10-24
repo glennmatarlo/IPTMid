@@ -10,7 +10,7 @@ use App\Models\Category;
 class PostsController extends Controller
 {
     public function index() {
-        $posts = Post::orderBy('id', 'DESC')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->get();
         return view('dashboard', compact('posts'));
     }
     public function myp(User $user){
