@@ -30,10 +30,7 @@
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"><h4>Posts</h4></label>
                 @foreach(App\Models\Post::get() as $p)
-                @foreach(App\Models\User::whereHas('posts', function($query) use ($p){
-                                        $query->where('category_id', $p->category_id);
-                                    })->get() as $user)
-                @if ($user->id == $p->user_id)
+                @if($p->user_id==Auth::user()->id)
                   @if ($p->user->gender == 'Male')
                     <div class="mb-3">
                         <div title="male" class="card alert-primary">
@@ -86,7 +83,6 @@
                         </div>
                     @endif
                     @endif
-                    @endforeach
                 @endforeach
             </div>
         </div>
