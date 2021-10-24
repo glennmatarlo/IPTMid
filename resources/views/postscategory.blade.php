@@ -17,7 +17,7 @@
       <div class="card">
         <div class="card-body">
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label"><h4>Posts</h4></label>
+                <label for="exampleFormControlTextarea1" class="form-label"><h4>{{$category->category}}</h4></label>
                 @foreach($posts as $p)
                   @if ($p->user->gender == 'Male')
                     <div class="mb-3">
