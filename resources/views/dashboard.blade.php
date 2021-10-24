@@ -6,6 +6,7 @@
 <nav class="navbar navbar-expand-lg bg-dark text-uppercase" id="mainNav" style="border-radius:3px;">
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarResponsive">
+            <label for="exampleFormControlTextarea1" class="form-label text-white mt-3"><h5>Recent posts</h5></label>
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item mx-0 mx-lg-1"><a class="text-white nav-link py-3 px-0 px-lg-3 rounded" href="/authors"><i class="bi bi-person"></i> AUTHORS</a></li>
                     
@@ -40,6 +41,7 @@
                               </ul>
                             </div>
                             {{$p->user->name}}
+                            {{$p->user->created_at}}
                             </div>
                             <div class="card-body">
                             {{$p->post}}
@@ -65,6 +67,7 @@
                               </ul>
                             </div>
                             {{$p->user->name}}
+                            {{$p->user->created_at}}
                             </div>
                             <div class="card-body">
                             {{$p->post}}
