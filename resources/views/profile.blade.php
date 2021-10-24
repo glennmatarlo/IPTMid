@@ -35,20 +35,9 @@
                     <div class="mb-3">
                         <div title="male" class="card alert-primary">
                             <div class="card-header">
-                            <div class="dropdown float-end">
-                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              <i class="bi bi-person"></i> {{$p->category->category}}
-                              </button>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-                                @foreach(App\Models\User::whereHas('posts', function($query) use ($p){
-                                    $query->where('category_id', $p->category_id);
-                                })->get() as $user)
-                                <li><a class="dropdown-item" href="/authors/{{$user->id}}">{{$user->name}}</a></li>
-                                @endforeach
-
-                              </ul>
-                            </div>
+                                <button class="btn float-end" type="button" id="dropdownMenuButton1"  aria-expanded="false" disabled>
+                                    {{$p->category->category}}
+                                </button>
                             {{$p->user->name}}
                             </div>
                             <div class="card-body">
@@ -58,22 +47,11 @@
                         </div>
                         @else
                         <div class="mb-3">
-                            <div title="male" class="card alert-danger">
+                            <div title="female" class="card alert-danger">
                                 <div class="card-header">
-                                <div class="dropdown float-end">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person"></i> {{$p->category->category}}
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-                                    @foreach(App\Models\User::whereHas('posts', function($query) use ($p){
-                                        $query->where('category_id', $p->category_id);
-                                    })->get() as $user)
-                                    <li><a class="dropdown-item" href="/authors/{{$user->id}}">{{$user->name}}</a></li>
-                                    @endforeach
-
-                                </ul>
-                                </div>
+                                    <button class="btn float-end" type="button" id="dropdownMenuButton1"  aria-expanded="false" disabled>
+                                        {{$p->category->category}}
+                                    </button>
                                 {{$p->user->name}}
                                 </div>
                                 <div class="card-body">
