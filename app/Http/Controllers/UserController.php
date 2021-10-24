@@ -97,13 +97,18 @@ class UserController extends Controller
 
     public function upload_photo_user(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [ // <---
             'pp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-    
+
+        if($validator->fails()){
+            return back()
+            ->with('Error','Image did not meet profile photo requirements.')
+            ->with('title', 'Upload Failed');
+        }
+
         $imageName = time().'.'.$request->pp->extension();  
-     
-        $request->pp->move(public_path('pp'), $imageName);
+        $request->pp->storeAs('image', $imageName);
   
         /* Store $imageName name in DATABASE from HERE */
     
