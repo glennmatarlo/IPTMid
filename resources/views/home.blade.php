@@ -1,5 +1,23 @@
 @include('head')
-<body style="background-color: white;">
+<body style="background-color: @include('color');">
+@auth
+<div class="container position-absolute top-50 start-50 translate-middle">
+<div class="card mt-5 mb-5">
+  <div class="card-header">
+    <h3>Confirm</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-text">You are already logged in as {{Auth::user()->name}}, you need to log out before logging in as different user.</p>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button class="btn btn-dark" style="width:100%">Logout</button>
+      </form>
+    <a href="/dashboard" class="btn btn-light border-secondary float-right mt-2" style="width:100%">Cancel</a>
+  </div>
+</div>
+</div>
+@endauth
+@guest
 @include('nvb')
 <div style="background-attachment:fixed; background-repeat: no-repeat; background-position:center;">
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -37,3 +55,4 @@
 </div>
 </body>
 @include('foot')
+@endguest
