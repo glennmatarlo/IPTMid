@@ -20,7 +20,7 @@
                     @endforeach
                     </select>
                 </div>
-                <button class="btn btn-dark" style="width: 100%;">Post</button>
+                <button class="btn btn-dark" style="width: 100%;">My Posts</button>
             </div>
             </form>
         </div>
